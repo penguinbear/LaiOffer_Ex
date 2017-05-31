@@ -15,12 +15,11 @@ public class MyQuickSort_May28 {
         array[5] = new int[]{1, 3, 5, 7, 9, 8, 6, 4, 2, 0};
 
         for(int i =0 ; i < array.length ; i++) {
-            int j = 0;
-            System.out.println(Arrays.toString(quickSort(array[i])));
+            int j;
+            //System.out.println(Arrays.toString(quickSort(array[i])));
             if (i==0) {
                 j = -100;
             }
-            j++;
             i = i;
 
         }
