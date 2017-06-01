@@ -1,5 +1,5 @@
-import java.util.Arrays;
-import java.util.Stack;
+import java.util.LinkedList;
+
 
 /**
  * Created by vincenthu on 5/31/17.
@@ -33,23 +33,23 @@ public class MyQueueBy2Stacks_May31 {
     }
     */
 
-    private Stack<Integer> stack_for_poll;
-    private Stack<Integer> stack_for_offer;
+    private LinkedList<Integer> stack_for_poll;
+    private LinkedList<Integer> stack_for_offer;
 
     public MyQueueBy2Stacks_May31() {
-        stack_for_poll = new Stack<Integer>();
-        stack_for_offer = new Stack<Integer>();
+        stack_for_poll = new LinkedList<Integer>();
+        stack_for_offer = new LinkedList<Integer>();
 
 
     }
 
     public Integer poll() {
-        if (stack_for_offer.empty() && stack_for_poll.empty()) {
+        if (stack_for_offer.isEmpty() && stack_for_poll.isEmpty()) {
             return null;
         }
 
-        if(stack_for_poll.empty()) {
-            while(!stack_for_offer.empty()) {
+        if(stack_for_poll.isEmpty()) {
+            while(!stack_for_offer.isEmpty()) {
                 stack_for_poll.push(stack_for_offer.pop());
             }
         }
@@ -61,12 +61,12 @@ public class MyQueueBy2Stacks_May31 {
     }
 
     public Integer peek() {
-        if (stack_for_offer.empty() && stack_for_poll.empty()) {
+        if (stack_for_offer.isEmpty() && stack_for_poll.isEmpty()) {
             return null;
         }
 
-        if(stack_for_poll.empty()) {
-            while(!stack_for_offer.empty()) {
+        if(stack_for_poll.isEmpty()) {
+            while(!stack_for_offer.isEmpty()) {
                 stack_for_poll.push(stack_for_offer.pop());
             }
         }
@@ -78,6 +78,6 @@ public class MyQueueBy2Stacks_May31 {
     }
 
     public boolean isEmpty() {
-        return (stack_for_offer.empty() && stack_for_poll.empty());
+        return (stack_for_offer.isEmpty() && stack_for_poll.isEmpty());
     }
 }
