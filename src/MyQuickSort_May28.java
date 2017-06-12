@@ -16,7 +16,7 @@ public class MyQuickSort_May28 {
 
         for(int i =0 ; i < array.length ; i++) {
             int j;
-            //System.out.println(Arrays.toString(quickSort(array[i])));
+            System.out.println(Arrays.toString(quickSort(array[i])));
             if (i==0) {
                 j = -100;
             }

@@ -1,5 +1,3 @@
-import java.util.List;
-
 /**
  * Created by vincenthu on 6/1/17.
  */
@@ -23,8 +21,8 @@ public class ReverseLinkedList_Jun03 {
             tail.next = newNode;
             tail = tail.next;
         }
-        //System.out.println(myReverse.reverse(head));
-        System.out.println(myReverse.recursiveReverse(head));
+        System.out.println(myReverse.reverse(head));
+        //System.out.println(myReverse.recursiveReverse(head));
 
 
 

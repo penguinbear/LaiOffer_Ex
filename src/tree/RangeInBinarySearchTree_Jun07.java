@@ -1,12 +1,13 @@
 import tree.TreeNode;
-import java.util.List;
+
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * Created by polarbear on 6/4/17.
  */
-public class RangeInBinarySearchTree {
+public class RangeInBinarySearchTree_Jun07 {
     public static void main(String[] a) {
         TreeNode root = new TreeNode(5);
         root.left = new TreeNode(2);
@@ -17,32 +18,25 @@ public class RangeInBinarySearchTree {
 
         root.right.right = new TreeNode(11);
 
-        RangeInBinarySearchTree myRanger = new RangeInBinarySearchTree();
+        RangeInBinarySearchTree_Jun07 myRanger = new RangeInBinarySearchTree_Jun07();
         System.out.println(myRanger.getRange(root, -11, -12));
 
 
     }
 
     public List<Integer> getRange(TreeNode root, int min, int max) {
-        // Write your solution here.
-        ArrayList<Integer> result = new ArrayList<>();
-        if(root == null) {
-            return result;
+        List<Integer> keys = new ArrayList<>();
+        if (root == null) {
+            return keys;
         }
 
-
-        result.addAll(getRange(root.left, min, max));
-
-        if(root.key >= min && root.key <= max) {
-            result.add(root.key);
+            keys.addAll(getRange(root.left, min, root.key));
+        if (root.key >= min && root.key <= max) {
+            keys.add(root.key);
         }
+            keys.addAll(getRange(root.right, root.key, max));
 
-        result.addAll(getRange(root.right, min, max));
-
-
-
-
-        return result;
+        return keys;
     }
 
 

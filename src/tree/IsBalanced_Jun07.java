@@ -4,7 +4,7 @@ import tree.TreeNode;
 /**
  * Created by polarbear on 6/4/17.
  */
-public class IsBalanced_Jun04 {
+public class IsBalanced_Jun07 {
     public static void main(String[] a) {
         TreeNode root = new TreeNode(5);
         root.left = new TreeNode(3);
@@ -13,7 +13,7 @@ public class IsBalanced_Jun04 {
         //root.right = new TreeNode(8);
         //root.right.right = new TreeNode(11);
 
-        IsBalanced_Jun04 myInOrder = new IsBalanced_Jun04();
+        IsBalanced_Jun07 myInOrder = new IsBalanced_Jun07();
         System.out.println(myInOrder.getHeight(root));
         System.out.println(myInOrder.isBalanced(root));
 
@@ -21,24 +21,19 @@ public class IsBalanced_Jun04 {
     }
 
     public boolean isBalanced(TreeNode root) {
-        // Write your solution here.
-        if(root == null) {
+        if (root == null) {
             return true;
         }
 
-        if(Math.abs(getHeight(root.left) - getHeight(root.right)) > 1) {
-            return false;
-        }
-
-        return isBalanced(root.left) && isBalanced(root.right);
+        return Math.abs(getHeight(root.left) - getHeight(root.right)) < 2 && isBalanced(root.left) && isBalanced(root.right);
     }
 
     public int getHeight(TreeNode root) {
-        // Write your solution here.
-        if(root == null) {
+        if (root == null) {
             return 0;
         }
-        return 1 + Math.max(getHeight(root.left),getHeight(root.right));
+
+        return 1 + Math.max(getHeight(root.left), getHeight(root.right));
     }
 
 }

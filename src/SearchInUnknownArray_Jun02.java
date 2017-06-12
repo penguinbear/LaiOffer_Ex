@@ -5,6 +5,9 @@
 class Dictionary {
     int[] data = {1, 2, 5, 9, 12, 25, 78, 100};
     public Integer get(int index) {
+        if (index > data.length - 1) {
+            return null;
+        }
         return data[index];
     }
 }
@@ -15,15 +18,16 @@ public class SearchInUnknownArray_Jun02 {
 
     public static void main(String[] a) {
         Dictionary dict = new Dictionary();
-        System.out.println(search(dict, 5));
-        System.out.println(search(dict, 7));
-        System.out.println(search(null, 5));
+        SearchInUnknownArray_Jun02 mySearch = new SearchInUnknownArray_Jun02();
+        System.out.println(mySearch.search(dict, 5));
+        System.out.println(mySearch.search(dict, 100));
+        System.out.println(mySearch.search(null, 5));
 
 
 
     }
 
-    public static int search(Dictionary dict, int target) {
+    public int search(Dictionary dict, int target) {
         // Write your solution here
         if (dict == null) {
             return -1;
@@ -44,13 +48,18 @@ public class SearchInUnknownArray_Jun02 {
         int end = upper_bound;
         while(start <= end) {
             int mid = start + (end - start)/2;
-            int mid_data = dict.get(mid);
-            if(mid_data == target) {
-                return mid;
-            } else if(mid_data < target) {
+            if (dict.get(mid) == null) {
                 end = mid - 1;
             } else {
-                start = mid + 1;
+                int mid_data = dict.get(mid);
+                if(mid_data == target) {
+                    return mid;
+                } else if(mid_data < target) {
+                    start = mid + 1;
+                } else {
+                    end = mid - 1;
+                }
+
             }
         }
 
