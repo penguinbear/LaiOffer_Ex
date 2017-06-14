@@ -2,6 +2,7 @@ package hashtable_1;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -13,10 +14,16 @@ public class CommonNum_Sol_2_BinarySearch_Jun14 {
         //List<Integer> A = Arrays.asList(new Integer[]{1, 1, 2, 2, 3});
         //List<Integer> B = Arrays.asList(new Integer[]{1, 1, 2, 5, 6});
 
-        Integer[] arrayA = new Integer[]{1, 1, 2, 2, 3};
-        List<Integer> A = new ArrayList<Integer>(arrayA);
+        Integer[] arrayA = new Integer[]{1, 2, 3, 4, 5, 6};
+        //Integer[] arrayA = new Integer[]{1, 1, 1, 1, 1, 1};
+        List<Integer> A = new ArrayList<>();
+        A.addAll(Arrays.asList(arrayA));
 
-        List<Integer> B = new ArrayList<Integer>(new Integer[]{1, 1, 2, 5, 6});
+        Integer[] arrayB = new Integer[]{1, 3, 3, 3};
+        //Integer[] arrayB = new Integer[]{1, 1, 1, 1};
+
+        List<Integer> B = new ArrayList<>();
+        B.addAll(Arrays.asList(arrayB));
         //List<Integer> A = Arrays.asList(new Integer[]{1, 2});
         //List<Integer> B = Arrays.asList(new Integer[]{});
 
@@ -30,23 +37,25 @@ public class CommonNum_Sol_2_BinarySearch_Jun14 {
     public List<Integer> common(List<Integer> A, List<Integer> B) {
         //Write your solution here.
         List<Integer> common = new ArrayList<>();
-
         if (A == null || A.size() == 0 || B == null || B.size() == 0) {
             return common;
         }
 
+        List<Integer> cloneA = new LinkedList<>(A);
+        List<Integer> cloneB = new LinkedList<>(B);
 
         List<Integer> shortList, longList;
-        if (A.size() < B.size()) {
-            shortList = A;
-            longList = B;
+
+        if (cloneA.size() < cloneB.size()) {
+            shortList = cloneA;
+            longList = cloneB;
         } else {
-            shortList = B;
-            longList = A;
+            shortList = cloneB;
+            longList = cloneA;
         }
 
+        int start = 0;
         for (Integer ele : shortList) {
-            int start = 0;
             int end = longList.size() - 1;
             while (start <= end) {
                 int mid = start + (end - start) / 2;

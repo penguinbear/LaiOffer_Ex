@@ -2,7 +2,7 @@ package hashtable_1;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
+import java.util.Hashtable;
 import java.util.List;
 
 /**
@@ -11,8 +11,8 @@ import java.util.List;
 public class CommonNum_Sol_3_HashSet_Jun14 {
     public static void main(String[] a) {
         CommonNum_Sol_3_HashSet_Jun14 mySubSets = new CommonNum_Sol_3_HashSet_Jun14();
-        List<Integer> A = Arrays.asList(new Integer[]{1, 1, 2, 2, 3});
-        List<Integer> B = Arrays.asList(new Integer[]{1, 1, 2, 5, 6});
+        List<Integer> B = Arrays.asList(new Integer[]{1, 1, 2, 2, 3});
+        List<Integer> A = Arrays.asList(new Integer[]{1, 1, 2, 5, 6});
         //List<Integer> A = Arrays.asList(new Integer[]{1, 2});
         //List<Integer> B = Arrays.asList(new Integer[]{});
 
@@ -31,14 +31,21 @@ public class CommonNum_Sol_3_HashSet_Jun14 {
             return common;
         }
 
-        HashSet<Integer> set = new HashSet<>();
+        //HashSet<Integer> set = new HashSet<>();
+        Hashtable<Integer, Integer> counts = new Hashtable<>();
         for (Integer ele : A) {
-            set.add(ele);
+            //set.add(ele);
+            if (counts.containsKey(ele)) {
+                counts.put(ele, counts.get(ele) + 1);
+            } else {
+                counts.put(ele, 1);
+            }
         }
 
         for (Integer ele : B) {
-            if (set.contains(ele)) {
+            if (counts.containsKey(ele) && counts.get(ele) >= 1) {
                 common.add(ele);
+                counts.put(ele, counts.get(ele) - 1);
             }
         }
 
