@@ -11,7 +11,8 @@ public class CoinCombinations_Jun13 {
         CoinCombinations_Jun13 mySubSets = new CoinCombinations_Jun13();
         //System.out.println(mySubSets.combinations(0, new int[]{25,2, 1}));
 
-        System.out.println(mySubSets.combinations(4, new int[]{2, 1}));
+        //System.out.println(mySubSets.combinations(0, new int[]{10, 5, 2, 1}));
+        System.out.println(mySubSets.combinations(4, new int[]{10, 5, 2, 1}));
 
 
     }
@@ -34,13 +35,15 @@ public class CoinCombinations_Jun13 {
     private List<List<Integer>> combinations(List<Integer> determined, int target, int[] coins, int currentCoinIndex) {        List<List<Integer>> combinations = new ArrayList<>();
 
         if (currentCoinIndex == coins.length) {
-            return null;
+            return new ArrayList<>();
         }
 
 
         List<List<Integer>> solutions = new ArrayList<>();
         if (target == 0) {
-            determined.add(0);
+            for (int i = currentCoinIndex; i < coins.length; i++) {
+                determined.add(0);
+            }
             solutions.add(determined);
             return solutions;
         }
