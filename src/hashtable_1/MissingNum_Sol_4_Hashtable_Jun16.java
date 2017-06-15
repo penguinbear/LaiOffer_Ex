@@ -1,11 +1,13 @@
 package hashtable_1;
 
+import java.util.HashSet;
+
 /**
  * Created by polarbear on 6/13/17.
  */
-public class MissingNum_I_Jun13 {
+public class MissingNum_Sol_4_Hashtable_Jun16 {
     public static void main(String[] a) {
-        MissingNum_I_Jun13 mySubSets = new MissingNum_I_Jun13();
+        MissingNum_Sol_4_Hashtable_Jun16 mySubSets = new MissingNum_Sol_4_Hashtable_Jun16();
         System.out.println(mySubSets.missing(null));
         System.out.println(mySubSets.missing(new int[]{}));
 
@@ -21,11 +23,19 @@ public class MissingNum_I_Jun13 {
             return 1;
         }
 
-        int result = 0;
+        HashSet<Integer> hash = new HashSet<>();
         for (int i = 0; i < a.length; i++) {
-            result ^= a[i] ^ (i + 1);
+            hash.add(a[i]);
         }
-        return result ^ (a.length + 1);
+
+        for (int i = 1; i <= a.length + 1; i++) {
+            if (!hash.contains(i)) {
+                return i;
+            }
+        }
+        return 0;
+
+
     }
 
 

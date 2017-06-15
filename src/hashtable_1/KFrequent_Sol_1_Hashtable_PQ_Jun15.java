@@ -15,7 +15,7 @@ public class KFrequent_Sol_1_Hashtable_PQ_Jun15 {
         System.out.println(Arrays.toString(mySubSets.topKFrequent(null, 2)));
         System.out.println(Arrays.toString(mySubSets.topKFrequent(empty, 2)));
 
-        System.out.println(Arrays.toString(mySubSets.topKFrequent(combo, 2)));
+        System.out.println(Arrays.toString(mySubSets.topKFrequent(combo, 5)));
 
 
 
@@ -23,10 +23,10 @@ public class KFrequent_Sol_1_Hashtable_PQ_Jun15 {
 
     public String[] topKFrequent(String[] combo, int k) {
         //Write your solution here.
-        String[] topK = new String[k];
         if (combo == null || combo.length == 0) {
-            return topK;
+            return new String[]{};
         }
+
 
         Hashtable<String, Integer> hash = new Hashtable<>();
         for (int i = 0; i < combo.length; i++) {
@@ -47,7 +47,9 @@ public class KFrequent_Sol_1_Hashtable_PQ_Jun15 {
             }
         }
 
-        for (int i = 0; i < k; i++) {
+        String[] topK = new String[heap.size()];
+
+        for (int i = topK.length - 1; i >= 0; i--) {
             topK[i] = heap.poll().getKey();
         }
 
