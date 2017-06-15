@@ -11,19 +11,19 @@ import java.util.List;
 public class CommonNum_Sol_2_BinarySearch_Jun14 {
     public static void main(String[] a) {
         CommonNum_Sol_2_BinarySearch_Jun14 mySubSets = new CommonNum_Sol_2_BinarySearch_Jun14();
-        //List<Integer> A = Arrays.asList(new Integer[]{1, 1, 2, 2, 3});
-        //List<Integer> B = Arrays.asList(new Integer[]{1, 1, 2, 5, 6});
+        List<Integer> A = Arrays.asList(new Integer[]{1, 1, 2, 2, 3});
+        List<Integer> B = Arrays.asList(new Integer[]{1, 1, 2, 5, 6});
 
-        Integer[] arrayA = new Integer[]{1, 2, 3, 4, 5, 6};
+        //Integer[] arrayA = new Integer[]{1, 2, 3, 4, 5, 6};
         //Integer[] arrayA = new Integer[]{1, 1, 1, 1, 1, 1};
-        List<Integer> A = new ArrayList<>();
-        A.addAll(Arrays.asList(arrayA));
+        //List<Integer> A = new ArrayList<>();
+        //A.addAll(Arrays.asList(arrayA));
 
-        Integer[] arrayB = new Integer[]{1, 3, 3, 3};
+        //Integer[] arrayB = new Integer[]{1, 3, 3, 3};
         //Integer[] arrayB = new Integer[]{1, 1, 1, 1};
 
-        List<Integer> B = new ArrayList<>();
-        B.addAll(Arrays.asList(arrayB));
+        //List<Integer> B = new ArrayList<>();
+        //B.addAll(Arrays.asList(arrayB));
         //List<Integer> A = Arrays.asList(new Integer[]{1, 2});
         //List<Integer> B = Arrays.asList(new Integer[]{});
 

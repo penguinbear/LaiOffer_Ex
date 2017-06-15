@@ -8,9 +8,9 @@ import java.util.List;
 /**
  * Created by polarbear on 6/13/17.
  */
-public class CommonNum_Sol_3_HashSet_Jun14 {
+public class CommonNum_Sol_3_Hashtable_Jun14 {
     public static void main(String[] a) {
-        CommonNum_Sol_3_HashSet_Jun14 mySubSets = new CommonNum_Sol_3_HashSet_Jun14();
+        CommonNum_Sol_3_Hashtable_Jun14 mySubSets = new CommonNum_Sol_3_Hashtable_Jun14();
         List<Integer> B = Arrays.asList(new Integer[]{1, 1, 2, 2, 3});
         List<Integer> A = Arrays.asList(new Integer[]{1, 1, 2, 5, 6});
         //List<Integer> A = Arrays.asList(new Integer[]{1, 2});
