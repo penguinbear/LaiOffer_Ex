@@ -58,6 +58,36 @@ public class IterativeInOrderTraversal_Jun07 {
         return inOrder;
     }
 
+    /*
+    public List<Integer> inOrder(TreeNode root) {
+        // Write your solution here.
+        List<Integer> inOrder = new ArrayList<>();
 
+        if(root == null) {
+            return inOrder;
+        }
+
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        //TreeNode curr = root;
+        stack.push(root);
+
+        while(stack.size() > 0) {
+            if (stack.peek().left != null) {
+                stack.push(root.left);
+                //curr = curr.left;
+            } else {
+                curr = stack.pop();
+                inOrder.add(curr.key);
+
+                if (curr.right != null) {
+                    stack.push(curr.right);
+                    curr = curr.right;
+                }
+            }
+        }
+
+        return inOrder;
+    }
+    */
 
 }

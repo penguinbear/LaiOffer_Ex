@@ -1,4 +1,4 @@
-package hashtable_1;
+package hashtable_string_1;
 
 import java.util.*;
 

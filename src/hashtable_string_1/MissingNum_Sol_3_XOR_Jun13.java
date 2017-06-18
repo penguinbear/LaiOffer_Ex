@@ -1,4 +1,4 @@
-package hashtable_1;
+package hashtable_string_1;
 
 /**
  * Created by polarbear on 6/13/17.
