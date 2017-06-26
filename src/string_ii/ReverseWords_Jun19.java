@@ -8,6 +8,13 @@ public class ReverseWords_Jun19 {
         ReverseWords_Jun19 mySubSets = new ReverseWords_Jun19();
         //System.out.println(mySubSets.rightShift(null));
         //System.out.println(mySubSets.rightShift(new String()));
+        int num = 0xBFFFFFFF;
+        System.out.println(num);
+        System.out.println(Integer.MIN_VALUE);
+
+        System.out.println(num * 2);
+        num <<= 1;
+        System.out.println(num);
 
 
         //System.out.println(mySubSets.reverseWords("abc"));
