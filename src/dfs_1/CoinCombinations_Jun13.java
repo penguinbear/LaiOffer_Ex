@@ -12,49 +12,44 @@ public class CoinCombinations_Jun13 {
         //System.out.println(mySubSets.combinations(0, new int[]{25,2, 1}));
 
         //System.out.println(mySubSets.combinations(0, new int[]{10, 5, 2, 1}));
-        System.out.println(mySubSets.combinations(4, new int[]{10, 5, 2, 1}));
+        //System.out.println(mySubSets.combinations(4, new int[]{10, 5, 2, 1}));
 
+        System.out.println(mySubSets.combinations(11, new int[]{5, 2, 1}));
 
     }
 
     public List<List<Integer>> combinations(int target, int[] coins) {
         //Write your solution here.
-        List<List<Integer>> combinations = new ArrayList<>();
+        List<List<Integer>> result = new ArrayList<>();
         if (target == 0) {
             List<Integer> zeros =new ArrayList<Integer>();
             for (int i = 0; i < coins.length; i++) {
                 zeros.add(0);
             }
-            combinations.add(zeros);
-            return combinations;
+            result.add(zeros);
+            return result;
         }
 
-        return combinations(new ArrayList<Integer>(), target, coins, 0);
+        combinations(new ArrayList<Integer>(), target, coins, 0, result);
+        return result;
     }
 
-    private List<List<Integer>> combinations(List<Integer> determined, int target, int[] coins, int currentCoinIndex) {        List<List<Integer>> combinations = new ArrayList<>();
+    private void combinations(List<Integer> determined, int remaining, int[] coins, int currentCoinIndex, List<List<Integer>> result) {
 
-        if (currentCoinIndex == coins.length) {
-            return new ArrayList<>();
+        if (remaining == 0) {
+            result.add(new ArrayList<Integer>(determined));
+            return;
+        } else if (currentCoinIndex == coins.length) {
+            return;
         }
 
+        //for (int i = remaining / coins[currentCoinIndex]; i >= 0; i--) {
+        for (int i = 0; i <= remaining / coins[currentCoinIndex]; i++) {
 
-        List<List<Integer>> solutions = new ArrayList<>();
-        if (target == 0) {
-            for (int i = currentCoinIndex; i < coins.length; i++) {
-                determined.add(0);
-            }
-            solutions.add(determined);
-            return solutions;
-        }
-
-
-        for (int i = target / coins[currentCoinIndex]; i >= 0; i--) {
-            determined.add(i);
-            solutions.addAll(combinations(determined, target - i * coins[currentCoinIndex], coins, currentCoinIndex + 1));
+                determined.add(i);
+            combinations(determined, remaining - i * coins[currentCoinIndex], coins, currentCoinIndex + 1, result);
             determined.remove(determined.size() - 1);
         }
-        return solutions;
 
 
     }
