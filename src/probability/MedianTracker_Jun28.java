@@ -11,14 +11,17 @@ public class MedianTracker_Jun28 {
     public static void main(String[] a){
         //main();
         MedianTracker_Jun28 mySolution = new MedianTracker_Jun28();
-        for (int i = 0; i < 10; i++) {
+        mySolution.read(1);
+        System.out.println(mySolution.median());
 
-            //mySolution.read((int) (Math.random() * 100));
-            //System.out.println(mySolution.sample());
+        mySolution.read(2);
+        System.out.println(mySolution.median());
 
-        }
+        mySolution.read(3);
+        System.out.println(mySolution.median());
 
-
+        mySolution.read(10);
+        System.out.println(mySolution.median());
 
 
     }
@@ -34,11 +37,30 @@ public class MedianTracker_Jun28 {
 
     public void read(int value) {
         // write your implementation here.
+        if (small_half.isEmpty() || small_half.peek() > value) {
+            small_half.offer(value);
+            if (small_half.size() > large_half.size() + 1) {
+                large_half.offer(small_half.poll());
+            }
+        } else {
+            large_half.offer(value);
+            if(large_half.size() > small_half.size()) {
+                small_half.offer((large_half.poll()));
+            }
+        }
     }
 
     public Double median() {
         // write your implementation here.
-        return null;
+        if (small_half.isEmpty()) {
+            return null;
+        }
+
+        if (small_half.size() == large_half.size()) {
+            return Double.valueOf((double) (small_half.peek() + large_half.peek()) / 2);
+        } else {
+            return Double.valueOf(small_half.peek());
+        }
     }
 
 }
