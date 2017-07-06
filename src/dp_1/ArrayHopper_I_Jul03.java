@@ -26,10 +26,10 @@ public class ArrayHopper_I_Jul03 {
         if (array == null || array.length == 0) {
             return false;
         }
-        boolean[] canJump = new boolean[array.length ];
+        boolean[] canJump = new boolean[array.length];
         canJump[array.length - 1] = true;
         for (int i = array.length - 1; i >= 0; i--) {
-            for (int j = i + 1; j < array.length - 1 - i; j++) {
+            for (int j = i + 1; j <= array.length - 1; j++) {
                 if (canJump[j] && j - i <= array[i]) {
                     canJump[i] = true;
                 }
